@@ -55,22 +55,18 @@ export function Hero() {
       {/* Content container */}
       <div className="relative z-10 mx-auto w-full max-w-[1180px] px-4 pb-10 md:pb-16 md:pt-[248px]">
         {/* Offer panel — overlaps the bottom of the mobile photo; left column on desktop */}
-        <div className="relative mx-auto -mt-8 w-full max-w-[560px] md:mx-0 md:mt-0 md:max-w-[720px]">
+        <div className="relative mx-auto -mt-8 w-full max-w-[520px] md:mx-0 md:mt-0 md:max-w-[540px]">
           <div
             className="w-full rounded-[18px] border-[3px] border-navy p-6 shadow-[4px_4px_0_0_#073563] sm:p-8 md:shadow-[7px_7px_0_0_#073563]"
             style={{ backgroundColor: '#FFFBF0' }}
           >
-            <p className="mb-3 font-sans text-sm font-semibold tracking-tight text-navy/80">
-              Free Prompts for Landscapers
-            </p>
-
             <h1 className="font-sans text-4xl font-black leading-[1.02] text-navy text-balance sm:text-5xl md:text-[3.25rem]">
               Price Landscaping
               <br className="hidden md:block" /> Jobs With AI
             </h1>
 
-            <p className="mt-4 max-w-[48ch] text-lg font-medium leading-relaxed text-navy">
-              Get two free prompts that use your customer&apos;s request, photos,
+            <p className="mt-4 max-w-[44ch] text-lg font-medium leading-relaxed text-navy">
+              Get free prompts that use your customer&apos;s request, photos,
               and your real business costs to help you build a better job
               estimate.
             </p>
