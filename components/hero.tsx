@@ -60,8 +60,8 @@ export function Hero() {
             className="w-full rounded-[18px] border-[3px] border-navy p-6 shadow-[4px_4px_0_0_#073563] sm:p-8 md:shadow-[7px_7px_0_0_#073563]"
             style={{ backgroundColor: '#FFFBF0' }}
           >
-            <h1 className="font-sans text-4xl font-black leading-[1.02] text-navy text-balance sm:text-5xl md:text-[3.25rem]">
-              Price Landscaping
+            <h1 className="font-sans text-4xl font-black leading-[1.02] text-navy text-balance sm:text-5xl md:text-[3rem]">
+              <span className="whitespace-nowrap">Price Landscaping</span>
               <br className="hidden md:block" /> Jobs With AI
             </h1>
 
