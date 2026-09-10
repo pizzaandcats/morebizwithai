@@ -1,5 +1,4 @@
 import { AnnouncementBar } from '@/components/announcement-bar'
-import { SiteHeader } from '@/components/site-header'
 import { Hero } from '@/components/hero'
 import { WhatYouGet } from '@/components/what-you-get'
 import { PromptSamples } from '@/components/prompt-samples'
@@ -12,7 +11,7 @@ export default function Page() {
     <>
       {/* AnnouncementBar hidden for now — kept available for future use */}
       {/* <AnnouncementBar /> */}
-      <SiteHeader />
+      {/* Logo now lives inside the hero panel, so the separate header is not rendered */}
       <main>
         <Hero />
         <WhatYouGet />
