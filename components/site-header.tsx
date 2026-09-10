@@ -3,7 +3,7 @@ import Image from 'next/image'
 export function SiteHeader() {
   return (
     <header className="bg-background">
-      <div className="mx-auto flex max-w-6xl items-center justify-center px-4 py-6">
+      <div className="mx-auto flex max-w-6xl items-center justify-center px-4 pt-8 pb-2">
         <a href="#top" className="flex items-center" aria-label="More Business with AI — home">
           <Image
             src="/logo-primary.svg"
@@ -11,7 +11,7 @@ export function SiteHeader() {
             width={180}
             height={150}
             priority
-            className="h-16 w-auto sm:h-[66px]"
+            className="h-28 w-auto sm:h-36"
           />
         </a>
       </div>
