@@ -1,15 +1,43 @@
-import { AlertTriangle } from 'lucide-react'
+const steps = [
+  {
+    n: '01',
+    title: 'Drop your email',
+    body: 'Tell us where to send it. The pack downloads instantly — no course, no upsell wall.',
+  },
+  {
+    n: '02',
+    title: 'Paste into any AI',
+    body: 'Works in ChatGPT, Claude, Gemini, or Copilot. Swap the brackets for your details.',
+  },
+  {
+    n: '03',
+    title: 'Ship it today',
+    body: 'Send the email, post the content, close the lead. Real output you can use before lunch.',
+  },
+]
 
 export function HowItWorks() {
   return (
-    <section className="border-b-2 border-navy bg-cream">
-      <div className="site-container py-10 md:py-14">
-        <div className="flex max-w-4xl gap-4 rounded-2xl border-2 border-navy bg-card p-5 md:p-6">
-          <AlertTriangle className="mt-0.5 size-7 shrink-0 text-primary" aria-hidden="true" />
-          <div>
-            <h2 className="text-xl font-extrabold text-navy">Review the estimate before you send it</h2>
-            <p className="mt-2 text-base leading-relaxed text-navy/80 md:text-lg">AI can help you prepare an estimate, but it can make mistakes. Review the job details, measurements, costs, assumptions, and final price before sending a quote to a customer.</p>
-          </div>
+    <section id="how" className="border-b-2 border-navy bg-secondary text-secondary-foreground">
+      <div className="mx-auto max-w-6xl px-4 py-14 md:py-20">
+        <div className="mb-10 max-w-2xl">
+          <p className="font-display text-sm uppercase tracking-widest text-primary">
+            Dead simple
+          </p>
+          <h2 className="mt-2 font-display text-4xl uppercase leading-none text-cream text-balance sm:text-5xl">
+            From email to output in 3 steps
+          </h2>
+        </div>
+        <div className="grid gap-8 md:grid-cols-3">
+          {steps.map((s) => (
+            <div key={s.n} className="border-t-4 border-primary pt-4">
+              <p className="font-display text-5xl leading-none text-primary">{s.n}</p>
+              <h3 className="mt-3 font-display text-2xl uppercase leading-none text-cream">
+                {s.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-cream/75">{s.body}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
