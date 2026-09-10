@@ -7,13 +7,15 @@ import { subscribe, type SubscribeState } from '@/app/actions'
 
 const initialState: SubscribeState = { status: 'idle', message: '' }
 
-function SubmitButton({ label }: { label: string }) {
+function SubmitButton({ label, stacked = false }: { label: string; stacked?: boolean }) {
   const { pending } = useFormStatus()
   return (
     <button
       type="submit"
       disabled={pending}
-      className="flex shrink-0 items-center justify-center gap-2 border-2 border-navy bg-primary px-6 py-3 font-display text-lg uppercase tracking-wide text-primary-foreground transition-transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70"
+      className={`flex shrink-0 items-center justify-center gap-2 border-2 border-navy bg-primary px-6 py-3 font-display text-lg uppercase tracking-wide text-primary-foreground transition-transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70 ${
+        stacked ? 'w-full' : ''
+      }`}
     >
       {pending ? (
         <>
@@ -31,10 +33,12 @@ export function EmailSignup({
   id,
   variant = 'light',
   buttonLabel = 'Get the prompts',
+  stacked = false,
 }: {
   id?: string
   variant?: 'light' | 'dark'
   buttonLabel?: string
+  stacked?: boolean
 }) {
   const [state, formAction] = useActionState(subscribe, initialState)
   const triggered = useRef(false)
@@ -79,8 +83,15 @@ export function EmailSignup({
 
   return (
     <form id={id} action={formAction} className="w-full">
-      <div className="flex flex-col gap-3 sm:flex-row">
-        <label htmlFor={`email-${id ?? 'x'}`} className="sr-only">
+      <div className={stacked ? 'flex flex-col gap-3' : 'flex flex-col gap-3 sm:flex-row'}>
+        <label
+          htmlFor={`email-${id ?? 'x'}`}
+          className={
+            stacked
+              ? `block text-sm font-semibold ${labelColor}`
+              : 'sr-only'
+          }
+        >
           Email address
         </label>
         <input
@@ -90,7 +101,9 @@ export function EmailSignup({
           required
           autoComplete="email"
           placeholder="you@yourbusiness.com"
-          className="w-full border-2 border-navy bg-cream px-4 py-3 text-base text-navy placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+          className={`w-full border-2 border-navy bg-cream px-4 py-3 text-base text-navy placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary ${
+            stacked ? '-mt-1' : ''
+          }`}
         />
         {/* Honeypot — hidden from users, catches bots */}
         <input
@@ -101,7 +114,7 @@ export function EmailSignup({
           aria-hidden="true"
           className="hidden"
         />
-        <SubmitButton label={buttonLabel} />
+        <SubmitButton label={buttonLabel} stacked={stacked} />
       </div>
       {state.status === 'error' && (
         <p className="mt-2 text-sm font-semibold text-primary" role="alert">
@@ -109,7 +122,9 @@ export function EmailSignup({
         </p>
       )}
       <p className={`mt-2 text-xs ${labelColor} opacity-70`}>
-        Free forever. No spam. Unsubscribe anytime.
+        {stacked
+          ? 'Free prompts, plus occasional practical AI tips for your business. Unsubscribe anytime.'
+          : 'Free forever. No spam. Unsubscribe anytime.'}
       </p>
     </form>
   )

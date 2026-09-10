@@ -81,7 +81,7 @@ export function Hero() {
             {/* Simple navy divider before the form */}
             <hr className="my-6 border-t-2 border-navy/70" />
 
-            <EmailSignup id="hero" buttonLabel="Get the Free Prompts" />
+            <EmailSignup id="hero" buttonLabel="Get the Free Prompts" stacked />
           </div>
         </div>
       </div>
