@@ -7,16 +7,25 @@ import { subscribe, type SubscribeState } from '@/app/actions'
 
 const initialState: SubscribeState = { status: 'idle', message: '' }
 
-function SubmitButton({ label, stacked = false }: { label: string; stacked?: boolean }) {
+function SubmitButton({
+  label,
+  stacked = false,
+  joined = false,
+}: {
+  label: string
+  stacked?: boolean
+  joined?: boolean
+}) {
   const { pending } = useFormStatus()
-  return (
-    <button
-      type="submit"
-      disabled={pending}
-      className={`flex shrink-0 items-center justify-center gap-2 border-2 border-navy bg-primary px-6 py-3 font-display text-lg uppercase tracking-wide text-primary-foreground transition-transform hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70 ${
+  const base =
+    'flex shrink-0 items-center justify-center gap-2 bg-primary px-6 py-3 font-display text-lg uppercase tracking-wide text-primary-foreground disabled:opacity-70'
+  const variantClasses = joined
+    ? 'w-full whitespace-nowrap border-t-2 border-navy sm:w-auto sm:border-l-2 sm:border-t-0'
+    : `border-2 border-navy transition-transform hover:-translate-y-0.5 active:translate-y-0 ${
         stacked ? 'w-full' : ''
-      }`}
-    >
+      }`
+  return (
+    <button type="submit" disabled={pending} className={`${base} ${variantClasses}`}>
       {pending ? (
         <>
           <Loader2 className="size-5 animate-spin" aria-hidden="true" />
@@ -34,11 +43,13 @@ export function EmailSignup({
   variant = 'light',
   buttonLabel = 'Get the prompts',
   stacked = false,
+  joined = false,
 }: {
   id?: string
   variant?: 'light' | 'dark'
   buttonLabel?: string
   stacked?: boolean
+  joined?: boolean
 }) {
   const [state, formAction] = useActionState(subscribe, initialState)
   const triggered = useRef(false)
@@ -81,51 +92,77 @@ export function EmailSignup({
 
   const labelColor = variant === 'dark' ? 'text-cream' : 'text-foreground'
 
+  const trustCopy =
+    joined || stacked
+      ? 'Free prompts, plus occasional practical AI tips for your business. Unsubscribe anytime.'
+      : 'Free forever. No spam. Unsubscribe anytime.'
+
   return (
     <form id={id} action={formAction} className="w-full">
-      <div className={stacked ? 'flex flex-col gap-3' : 'flex flex-col gap-3 sm:flex-row'}>
-        <label
-          htmlFor={`email-${id ?? 'x'}`}
-          className={
-            stacked
-              ? `block text-sm font-semibold ${labelColor}`
-              : 'sr-only'
-          }
-        >
-          Email address
-        </label>
-        <input
-          id={`email-${id ?? 'x'}`}
-          name="email"
-          type="email"
-          required
-          autoComplete="email"
-          placeholder="you@yourbusiness.com"
-          className={`w-full border-2 border-navy bg-cream px-4 py-3 text-base text-navy placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary ${
-            stacked ? '-mt-1' : ''
-          }`}
-        />
-        {/* Honeypot — hidden from users, catches bots */}
-        <input
-          type="text"
-          name="company"
-          tabIndex={-1}
-          autoComplete="off"
-          aria-hidden="true"
-          className="hidden"
-        />
-        <SubmitButton label={buttonLabel} stacked={stacked} />
-      </div>
+      {joined ? (
+        // Single bordered row: input left / button right on desktop, stacked full-width on mobile
+        <div className="flex w-full flex-col overflow-hidden rounded-md border-2 border-navy bg-cream focus-within:ring-2 focus-within:ring-primary sm:flex-row">
+          <label htmlFor={`email-${id ?? 'x'}`} className="sr-only">
+            Email address
+          </label>
+          <input
+            id={`email-${id ?? 'x'}`}
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+            aria-label="Email address"
+            placeholder="Email address"
+            className="w-full flex-1 border-0 bg-cream px-4 py-3 text-base text-navy placeholder:text-muted-foreground focus:outline-none"
+          />
+          {/* Honeypot — hidden from users, catches bots */}
+          <input
+            type="text"
+            name="company"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="hidden"
+          />
+          <SubmitButton label={buttonLabel} joined />
+        </div>
+      ) : (
+        <div className={stacked ? 'flex flex-col gap-3' : 'flex flex-col gap-3 sm:flex-row'}>
+          <label
+            htmlFor={`email-${id ?? 'x'}`}
+            className={stacked ? `block text-sm font-semibold ${labelColor}` : 'sr-only'}
+          >
+            Email address
+          </label>
+          <input
+            id={`email-${id ?? 'x'}`}
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+            placeholder="you@yourbusiness.com"
+            className={`w-full border-2 border-navy bg-cream px-4 py-3 text-base text-navy placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary ${
+              stacked ? '-mt-1' : ''
+            }`}
+          />
+          {/* Honeypot — hidden from users, catches bots */}
+          <input
+            type="text"
+            name="company"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="hidden"
+          />
+          <SubmitButton label={buttonLabel} stacked={stacked} />
+        </div>
+      )}
       {state.status === 'error' && (
         <p className="mt-2 text-sm font-semibold text-primary" role="alert">
           {state.message}
         </p>
       )}
-      <p className={`mt-2 text-xs ${labelColor} opacity-70`}>
-        {stacked
-          ? 'Free prompts, plus occasional practical AI tips for your business. Unsubscribe anytime.'
-          : 'Free forever. No spam. Unsubscribe anytime.'}
-      </p>
+      <p className={`mt-2 text-xs ${labelColor} opacity-70`}>{trustCopy}</p>
     </form>
   )
 }
