@@ -1,62 +1,36 @@
-import Image from 'next/image'
-import { Zap } from 'lucide-react'
 import { EmailSignup } from '@/components/email-signup'
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden border-b-2 border-navy">
-      <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 py-12 md:grid-cols-2 md:py-16">
-        {/* Left: headline + form */}
-        <div className="relative z-10">
-          <p className="mb-4 inline-block border-2 border-navy bg-secondary px-3 py-1 font-display text-xs uppercase tracking-widest text-secondary-foreground">
-            For owners, operators &amp; solopreneurs
-          </p>
-          <h1 className="font-display text-5xl uppercase leading-[0.92] text-navy text-balance sm:text-6xl lg:text-7xl">
-            More business.
-            <br />
-            <span className="text-primary">Less busywork.</span>
+    <section id="top" className="border-b-2 border-navy bg-background">
+      <div className="site-container grid items-center gap-10 py-10 lg:grid-cols-[1.05fr_.95fr] lg:py-16">
+        <div>
+          <p className="eyebrow">Free prompts for landscapers</p>
+          <h1 className="mt-5 font-display text-[2.75rem] leading-[0.98] text-navy text-balance sm:text-6xl lg:text-7xl">
+            Price Landscaping Jobs <span className="text-primary">With AI</span>
           </h1>
-          <p className="mt-5 max-w-md text-lg leading-relaxed text-navy/80">
-            The battle-tested AI prompts that help you win more customers, reply
-            faster, and claw back hours every week. Drop your email and grab the
-            pack — on us.
+          <p className="mt-6 max-w-xl text-xl font-semibold leading-relaxed text-navy">
+            Get two free prompts that help you turn customer requests and photos into better job estimates.
           </p>
-
-          <div className="mt-7 max-w-md border-2 border-navy bg-card p-4 shadow-hard">
-            <EmailSignup id="hero" buttonLabel="Download free" />
+          <p className="mt-4 max-w-xl text-lg leading-relaxed text-navy/80">
+            Use your real labor costs, rates, expenses, and local pricing to build an estimate and see whether the job actually makes money.
+          </p>
+          <div className="mt-7 max-w-xl rounded-2xl border-2 border-navy bg-card p-5 shadow-hard">
+            <EmailSignup id="hero" />
           </div>
         </div>
 
-        {/* Right: collage */}
-        <div className="relative flex justify-center md:justify-end">
-          <div className="relative">
-            {/* Red backdrop card, rotated for the sticker look */}
-            <div className="absolute inset-0 translate-x-4 translate-y-4 rotate-3 border-2 border-navy bg-primary" />
-            <div className="relative -rotate-2 border-2 border-navy bg-secondary p-2">
-              <Image
-                src="/hero-collage.png"
-                alt="Business owner using AI to grow their business"
-                width={520}
-                height={520}
-                priority
-                className="h-auto w-[min(78vw,420px)] object-cover"
-              />
+        <div className="order-first lg:order-none">
+          <div className="overflow-hidden rounded-2xl border-2 border-navy bg-green-soft shadow-hard">
+            <div className="flex aspect-[4/3] flex-col justify-end bg-[linear-gradient(145deg,#dcebdc_0%,#fffdf5_52%,#cbdccf_100%)] p-6">
+              <div className="max-w-sm rounded-xl border-2 border-navy bg-cream/95 p-5">
+                <p className="font-bold text-navy">Landscaping hero photo</p>
+                <p className="mt-1 text-base leading-relaxed text-navy/75">
+                  A small landscaping crew pricing a real residential job beside their work truck.
+                </p>
+                <p className="mt-3 text-sm font-semibold text-green">/images/landscaping/estimates-hero.jpg</p>
+              </div>
             </div>
-            {/* Robot sticker overlapping */}
-            <div className="absolute -bottom-6 -left-6 w-24 rotate-[8deg] sm:w-28">
-              <Image
-                src="/sticker-robot.png"
-                alt=""
-                aria-hidden="true"
-                width={140}
-                height={140}
-                className="h-auto w-full drop-shadow-[3px_3px_0_#073563]"
-              />
-            </div>
-            <Zap
-              className="absolute -right-3 -top-4 size-12 rotate-12 fill-primary text-navy"
-              aria-hidden="true"
-            />
           </div>
         </div>
       </div>

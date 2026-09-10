@@ -8,18 +8,5 @@ import { FinalCta } from '@/components/final-cta'
 import { SiteFooter } from '@/components/site-footer'
 
 export default function Page() {
-  return (
-    <>
-      <AnnouncementBar />
-      <SiteHeader />
-      <main>
-        <Hero />
-        <WhatYouGet />
-        <PromptSamples />
-        <HowItWorks />
-        <FinalCta />
-      </main>
-      <SiteFooter />
-    </>
-  )
+  return <><AnnouncementBar /><SiteHeader /><main><Hero /><WhatYouGet /><PromptSamples /><HowItWorks /><FinalCta /></main><SiteFooter /></>
 }
