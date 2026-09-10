@@ -10,7 +10,8 @@ import { SiteFooter } from '@/components/site-footer'
 export default function Page() {
   return (
     <>
-      <AnnouncementBar />
+      {/* AnnouncementBar hidden for now — kept available for future use */}
+      {/* <AnnouncementBar /> */}
       <SiteHeader />
       <main>
         <Hero />
