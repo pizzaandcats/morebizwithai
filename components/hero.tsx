@@ -20,7 +20,7 @@ export function Hero() {
       </div>
 
       <div className="relative box-border flex w-full max-w-[620px] flex-col gap-3.5 rounded-[18px] border-2 border-navy bg-cream px-5 pb-[18px] pt-6 sm:gap-[15px] sm:px-8 sm:pb-[20px] sm:pt-[30px]">
-        <span className="inline-flex items-center self-start overflow-visible rounded-[15px] bg-green px-3.5 pb-[6px] pt-[7px] text-[10px] font-extrabold leading-normal tracking-[0.08em] text-cream sm:min-h-[30px] sm:px-4 sm:py-0 sm:text-[12px] sm:tracking-[0.1em]">
+        <span className="inline-block self-start rounded-full bg-green px-4 py-2 text-[11px] font-extrabold leading-[1.35] tracking-[0.08em] text-cream sm:text-[12px] sm:tracking-[0.1em]">
           PROMPTS FOR LANDSCAPING BUSINESSES
         </span>
 

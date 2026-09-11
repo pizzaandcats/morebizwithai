@@ -10,7 +10,7 @@ function PromptCard({ badge, title, body, preview, previewLabel }: PromptCardPro
   return (
     <div className="flex min-w-0 flex-1 flex-col overflow-hidden rounded-[14px] border-2 border-navy bg-card">
       <div className="flex flex-col gap-[10px] bg-green px-5 py-[18px] sm:px-[26px] sm:py-[20px]">
-        <span className="inline-flex items-center self-start overflow-visible rounded-[15px] bg-cream px-3.5 pb-[6px] pt-[7px] text-[10px] font-extrabold leading-normal tracking-[0.07em] text-navy sm:min-h-[30px] sm:px-4 sm:py-0 sm:text-[12px] sm:tracking-[0.08em]">
+        <span className="inline-block self-start rounded-full bg-cream px-4 py-2 text-[11px] font-extrabold leading-[1.35] tracking-[0.07em] text-navy sm:text-[12px] sm:tracking-[0.08em]">
           {badge}
         </span>
         <span className="font-display text-[23px] leading-[1.1] tracking-[0.01em] text-cream sm:text-[24px]">{title}</span>
