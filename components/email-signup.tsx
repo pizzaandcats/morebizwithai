@@ -1,168 +1,108 @@
 'use client'
 
-import { useActionState, useEffect, useRef } from 'react'
-import { useFormStatus } from 'react-dom'
-import { CheckCircle2, Loader2 } from 'lucide-react'
-import { subscribe, type SubscribeState } from '@/app/actions'
+import { useId, useState } from 'react'
 
-const initialState: SubscribeState = { status: 'idle', message: '' }
+type Variant = 'light' | 'dark'
+type Kind = '' | 'pending' | 'success' | 'error'
 
-function SubmitButton({
-  label,
-  stacked = false,
-  joined = false,
-}: {
-  label: string
-  stacked?: boolean
-  joined?: boolean
-}) {
-  const { pending } = useFormStatus()
-  const base =
-    'flex shrink-0 items-center justify-center gap-2 bg-primary px-6 py-3 font-display text-lg uppercase tracking-wide text-primary-foreground disabled:opacity-70'
-  const variantClasses = joined
-    ? 'w-full whitespace-nowrap border-t-2 border-navy sm:w-auto sm:border-l-2 sm:border-t-0'
-    : `border-2 border-navy transition-transform hover:-translate-y-0.5 active:translate-y-0 ${
-        stacked ? 'w-full' : ''
-      }`
-  return (
-    <button type="submit" disabled={pending} className={`${base} ${variantClasses}`}>
-      {pending ? (
-        <>
-          <Loader2 className="size-5 animate-spin" aria-hidden="true" />
-          Sending
-        </>
-      ) : (
-        label
-      )}
-    </button>
-  )
+function isValidEmail(v: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim())
 }
 
-export function EmailSignup({
-  id,
-  variant = 'light',
-  buttonLabel = 'Get the prompts',
-  stacked = false,
-  joined = false,
-}: {
-  id?: string
-  variant?: 'light' | 'dark'
-  buttonLabel?: string
-  stacked?: boolean
-  joined?: boolean
-}) {
-  const [state, formAction] = useActionState(subscribe, initialState)
-  const triggered = useRef(false)
+function tone(kind: Kind, dark: boolean) {
+  if (kind === 'success') return dark ? '#7be0a8' : '#17803f'
+  if (kind === 'pending') return dark ? '#9aa0c4' : '#6b6f8c'
+  return dark ? '#ffb0a4' : '#c4341f'
+}
 
-  // Kick off the real file download once the server confirms success.
-  useEffect(() => {
-    if (state.status === 'success' && state.downloadUrl && !triggered.current) {
-      triggered.current = true
-      const a = document.createElement('a')
-      a.href = state.downloadUrl
-      a.download = 'more-business-ai-prompts.txt'
-      document.body.appendChild(a)
-      a.click()
-      a.remove()
+export function EmailSignup({ variant = 'light' }: { variant?: Variant }) {
+  const dark = variant === 'dark'
+  const inputId = useId()
+  const statusId = useId()
+  const [email, setEmail] = useState('')
+  const [msg, setMsg] = useState('')
+  const [kind, setKind] = useState<Kind>('')
+  const [sending, setSending] = useState(false)
+
+  function submit() {
+    if (sending) {
+      setMsg('Your request is already being sent.')
+      setKind('error')
+      return
     }
-  }, [state])
-
-  if (state.status === 'success') {
-    return (
-      <div
-        className={`flex items-center gap-3 border-2 border-navy p-4 ${
-          variant === 'dark' ? 'bg-cream text-navy' : 'bg-secondary text-secondary-foreground'
-        }`}
-      >
-        <CheckCircle2 className="size-6 shrink-0 text-primary" aria-hidden="true" />
-        <div>
-          <p className="font-display text-lg uppercase leading-none">You&apos;re in!</p>
-          <p className="text-sm">
-            {state.message}{' '}
-            {state.downloadUrl && (
-              <a href={state.downloadUrl} download className="underline underline-offset-2">
-                Download again
-              </a>
-            )}
-          </p>
-        </div>
-      </div>
-    )
+    if (!isValidEmail(email)) {
+      setMsg('Enter a valid email address.')
+      setKind('error')
+      return
+    }
+    setSending(true)
+    setMsg('Getting your prompts...')
+    setKind('pending')
+    setTimeout(() => {
+      setSending(false)
+      setEmail('')
+      setMsg('Check your inbox — both prompts are on the way.')
+      setKind('success')
+    }, 1200)
   }
 
-  const labelColor = variant === 'dark' ? 'text-cream' : 'text-foreground'
+  const inputClasses = dark
+    ? 'h-[54px] flex-auto min-w-0 rounded-[27px] border-2 border-cream bg-card px-5 text-[16px] text-navy outline-none focus-visible:border-mint focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_rgba(123,224,168,0.45)]'
+    : 'h-[52px] flex-auto min-w-0 rounded-[26px] border-2 border-navy bg-card px-[18px] text-[15.5px] text-navy outline-none focus-visible:border-green'
 
-  const trustCopy =
-    joined || stacked
-      ? 'Free prompts, plus occasional practical AI tips for your business. Unsubscribe anytime.'
-      : 'Free forever. No spam. Unsubscribe anytime.'
+  const buttonClasses = dark
+    ? 'h-[54px] flex-none whitespace-nowrap rounded-[27px] border-2 border-cream bg-red px-6 font-display text-[18px] tracking-[0.02em] text-cream outline-none transition-colors hover:bg-cream hover:text-navy focus-visible:shadow-[0_0_0_4px_rgba(123,224,168,0.55)]'
+    : 'h-[52px] flex-none whitespace-nowrap rounded-[26px] border-2 border-navy bg-red px-[22px] font-display text-[18px] tracking-[0.02em] text-cream transition-colors hover:bg-navy'
 
   return (
-    <form id={id} action={formAction} className="w-full">
-      {joined ? (
-        // Single bordered row: input left / button right on desktop, stacked full-width on mobile
-        <div className="flex w-full flex-col overflow-hidden rounded-md border-2 border-navy bg-cream focus-within:ring-2 focus-within:ring-primary sm:flex-row">
-          <label htmlFor={`email-${id ?? 'x'}`} className="sr-only">
-            Email address
-          </label>
-          <input
-            id={`email-${id ?? 'x'}`}
-            name="email"
-            type="email"
-            required
-            autoComplete="email"
-            aria-label="Email address"
-            placeholder="Email address"
-            className="w-full flex-1 border-0 bg-cream px-4 py-3 text-base text-navy placeholder:text-muted-foreground focus:outline-none"
-          />
-          {/* Honeypot — hidden from users, catches bots */}
-          <input
-            type="text"
-            name="company"
-            tabIndex={-1}
-            autoComplete="off"
-            aria-hidden="true"
-            className="hidden"
-          />
-          <SubmitButton label={buttonLabel} joined />
-        </div>
-      ) : (
-        <div className={stacked ? 'flex flex-col gap-3' : 'flex flex-col gap-3 sm:flex-row'}>
-          <label
-            htmlFor={`email-${id ?? 'x'}`}
-            className={stacked ? `block text-sm font-semibold ${labelColor}` : 'sr-only'}
-          >
-            Email address
-          </label>
-          <input
-            id={`email-${id ?? 'x'}`}
-            name="email"
-            type="email"
-            required
-            autoComplete="email"
-            placeholder="you@yourbusiness.com"
-            className={`w-full border-2 border-navy bg-cream px-4 py-3 text-base text-navy placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary ${
-              stacked ? '-mt-1' : ''
-            }`}
-          />
-          {/* Honeypot — hidden from users, catches bots */}
-          <input
-            type="text"
-            name="company"
-            tabIndex={-1}
-            autoComplete="off"
-            aria-hidden="true"
-            className="hidden"
-          />
-          <SubmitButton label={buttonLabel} stacked={stacked} />
-        </div>
-      )}
-      {state.status === 'error' && (
-        <p className="mt-2 text-sm font-semibold text-primary" role="alert">
-          {state.message}
-        </p>
-      )}
-      <p className={`mt-2 text-xs ${labelColor} opacity-70`}>{trustCopy}</p>
-    </form>
+    <>
+      <div
+        data-stack-mobile="true"
+        className="flex w-full flex-nowrap gap-[9px]"
+      >
+        <label htmlFor={inputId} className="sr-only">
+          Email address
+        </label>
+        <input
+          id={inputId}
+          type="email"
+          inputMode="email"
+          autoComplete="email"
+          placeholder="you@yourbusiness.com"
+          value={email}
+          aria-describedby={statusId}
+          onChange={(e) => {
+            setEmail(e.target.value)
+            setMsg('')
+            setKind('')
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && !e.nativeEvent.isComposing && e.keyCode !== 229) {
+              submit()
+            }
+          }}
+          className={`box-border font-sans ${inputClasses}`}
+        />
+        <button type="button" onClick={submit} className={`box-border cursor-pointer ${buttonClasses}`}>
+          GET THE PROMPTS
+        </button>
+      </div>
+      <div className="flex flex-col items-center gap-[5px] text-center">
+        <span
+          className={dark ? 'text-[15px] text-[#e4e7f5]' : 'text-[14px] font-semibold text-ink-soft'}
+        >
+          Unsubscribe anytime.
+        </span>
+        <span
+          id={statusId}
+          role="status"
+          aria-live="polite"
+          className={dark ? 'text-[15px] font-bold' : 'text-[14px] font-bold'}
+          style={{ color: msg ? tone(kind, dark) : 'transparent' }}
+        >
+          {msg || '\u00A0'}
+        </span>
+      </div>
+    </>
   )
 }

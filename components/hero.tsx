@@ -1,82 +1,43 @@
 import Image from 'next/image'
-import { EmailSignup } from '@/components/email-signup'
+import { EmailSignup } from './email-signup'
 
 export function Hero() {
   return (
     <section
-      id="top"
-      className="relative overflow-hidden border-b-2 border-navy md:min-h-[720px]"
+      id="signup"
+      aria-labelledby="hero-heading"
+      className="relative flex aspect-[2.4/1] min-h-[450px] w-full items-center overflow-hidden border-b-2 border-navy px-6 py-7 sm:px-10 sm:pl-16 lg:pl-24"
     >
-      {/* Desktop: full-bleed photograph, anchored right so the landscaper stays visible */}
-      <div className="absolute inset-0 hidden md:block">
+      <div data-hero-bg="true" className="absolute inset-0">
         <Image
-          src="/landscaper-hero.png"
-          alt=""
-          aria-hidden="true"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-right"
-        />
-      </div>
-
-      {/* Approved stacked logo — centered across the ENTIRE hero, near the top.
-          Thin cream edge separates it from the photo; a restrained navy shadow
-          lifts it. Red-and-navy artwork colors are preserved. */}
-      <div className="absolute inset-x-0 top-6 z-20 flex justify-center md:top-12">
-        <Image
-          src="/logo-primary.svg"
-          alt="More Business with AI"
-          width={180}
-          height={150}
-          priority
-          className="h-[120px] w-auto sm:h-[144px] md:h-[168px]"
-          style={{
-            filter:
-              'drop-shadow(2px 0 0 #FFFBF0) drop-shadow(-2px 0 0 #FFFBF0) drop-shadow(0 2px 0 #FFFBF0) drop-shadow(0 -2px 0 #FFFBF0) drop-shadow(0 3px 8px rgba(7, 53, 99, 0.45))',
-          }}
-        />
-      </div>
-
-      {/* Mobile: dedicated photo area cropped to the landscaper on the right */}
-      <div className="relative h-[340px] w-full md:hidden">
-        <Image
-          src="/landscaper-hero.png"
-          alt=""
-          aria-hidden="true"
+          src="/images/hero-landscaper.png"
+          alt="A landscaper kneeling to plant shrubs in a manicured yard, with open lawn on the left"
           fill
           priority
           sizes="100vw"
           className="object-cover"
-          style={{ objectPosition: '92% center' }}
         />
       </div>
 
-      {/* Content container */}
-      <div className="relative z-10 mx-auto w-full max-w-[1180px] px-4 pb-10 md:pb-16 md:pt-[248px]">
-        {/* Offer panel — overlaps the bottom of the mobile photo; left column on desktop */}
-        <div className="relative mx-auto -mt-8 w-full max-w-[520px] md:mx-0 md:mt-0 md:max-w-[540px]">
-          <div
-            className="w-full rounded-[18px] border-[3px] border-navy p-6 shadow-[4px_4px_0_0_#073563] sm:p-8 md:shadow-[7px_7px_0_0_#073563]"
-            style={{ backgroundColor: '#FFFBF0' }}
-          >
-            <h1 className="font-sans text-4xl font-black leading-[1.02] text-navy text-balance sm:text-5xl md:text-[3rem]">
-              <span className="whitespace-nowrap">Price Landscaping</span>
-              <br className="hidden md:block" /> Jobs With AI
-            </h1>
+      <div className="relative box-border flex w-full max-w-[620px] flex-col gap-[15px] rounded-[18px] border-2 border-navy bg-cream px-8 pt-[30px] pb-[20px]">
+        <span className="inline-flex h-[30px] shrink-0 items-center self-start rounded-[15px] bg-green px-4 text-[12px] font-extrabold tracking-[0.1em] text-cream">
+          PROMPTS FOR LANDSCAPING BUSINESSES
+        </span>
 
-            <p className="mt-4 max-w-[44ch] text-lg font-medium leading-relaxed text-navy">
-              Get free prompts that use your customer&apos;s request, photos,
-              and your real business costs to help you build a better job
-              estimate.
-            </p>
+        <h1
+          id="hero-heading"
+          className="mb-0 mt-[6px] text-balance font-display text-[clamp(26px,6.6vw,30px)] font-normal uppercase leading-[0.9] tracking-[-0.015em] sm:text-[clamp(30px,4.3vw,45px)]"
+        >
+          <span className="block text-green sm:whitespace-nowrap">USE AI TO PRICE JOBS</span>
+          <span className="block text-navy sm:whitespace-nowrap">AND PROTECT YOUR PROFIT</span>
+        </h1>
 
-            {/* Simple navy divider before the form */}
-            <hr className="my-6 border-t-2 border-navy/70" />
+        <p className="m-0 text-pretty text-[17px] leading-[1.5] text-ink">
+          Get <strong className="text-navy">two free prompts</strong> that use the customer&apos;s
+          request, photos, and your real costs to help you build a better estimate.
+        </p>
 
-            <EmailSignup id="hero" buttonLabel="Get the Free Prompts" joined />
-          </div>
-        </div>
+        <EmailSignup variant="light" />
       </div>
     </section>
   )
