@@ -6,7 +6,7 @@ export function Hero() {
     <section
       id="signup"
       aria-labelledby="hero-heading"
-      className="relative flex aspect-[2.4/1] min-h-[450px] w-full items-center overflow-hidden border-b-2 border-navy px-6 py-7 sm:px-10"
+      className="relative flex aspect-[2.4/1] min-h-[450px] w-full items-center overflow-hidden border-b-2 border-navy px-6 py-7 sm:px-10 sm:pl-16 lg:pl-24"
     >
       <div data-hero-bg="true" className="absolute inset-0">
         <Image
@@ -19,7 +19,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative box-border flex w-full max-w-[620px] flex-col gap-[15px] rounded-[18px] border-2 border-navy bg-cream px-8 py-[30px]">
+      <div className="relative box-border flex w-full max-w-[620px] flex-col gap-[15px] rounded-[18px] border-2 border-navy bg-cream px-8 pt-[30px] pb-[20px]">
         <span className="inline-flex h-[30px] shrink-0 items-center self-start rounded-[15px] bg-green px-4 text-[12px] font-extrabold tracking-[0.1em] text-cream">
           PROMPTS FOR LANDSCAPING BUSINESSES
         </span>
