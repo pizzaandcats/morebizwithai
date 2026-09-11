@@ -64,7 +64,7 @@ export function PromptsSection() {
           />
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-[18px] rounded-[14px] border-2 border-navy bg-card p-6 text-center">
+        <div className="flex flex-col items-center justify-center gap-[18px] pt-4 text-center sm:flex-row">
           <div className="text-balance font-display text-[22px] tracking-[0.01em] text-navy">
             That&apos;s just a peek. Get the complete prompt free.
           </div>
