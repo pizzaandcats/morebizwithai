@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Anton, Archivo } from 'next/font/google'
+import { Archivo, DM_Mono, Lilita_One } from 'next/font/google'
 import './globals.css'
 
 const archivo = Archivo({
@@ -9,22 +9,28 @@ const archivo = Archivo({
   weight: ['400', '500', '600', '700', '800', '900'],
 })
 
-const anton = Anton({
+const lilitaOne = Lilita_One({
   subsets: ['latin'],
-  variable: '--font-anton',
+  variable: '--font-lilita',
   weight: '400',
 })
 
+const dmMono = DM_Mono({
+  subsets: ['latin'],
+  variable: '--font-dm-mono',
+  weight: ['400', '500'],
+})
+
 export const metadata: Metadata = {
-  title: 'More Business with AI — Free Prompt Pack for Business Owners',
+  title: 'More Business with AI — Price Landscaping Jobs & Protect Your Profit',
   description:
-    'The battle-tested AI prompts that help you win more customers, save hours every week, and grow your business. Drop your email and download the pack free.',
+    'Two free AI prompts built for landscaping business owners. Use the customer request, photos, and your real costs to build better estimates and protect your profit.',
   generator: 'v0.app',
 }
 
 export const viewport: Viewport = {
   colorScheme: 'light',
-  themeColor: '#e32119',
+  themeColor: '#17803f',
 }
 
 export default function RootLayout({
@@ -33,7 +39,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${archivo.variable} ${anton.variable} bg-background`}>
+    <html
+      lang="en"
+      className={`${archivo.variable} ${lilitaOne.variable} ${dmMono.variable} bg-background`}
+    >
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

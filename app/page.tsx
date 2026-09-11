@@ -1,25 +1,27 @@
-import { AnnouncementBar } from '@/components/announcement-bar'
+import { IndustryBar } from '@/components/industry-bar'
+import { SiteNav } from '@/components/site-nav'
 import { Hero } from '@/components/hero'
-import { WhatYouGet } from '@/components/what-you-get'
-import { PromptSamples } from '@/components/prompt-samples'
-import { HowItWorks } from '@/components/how-it-works'
-import { FinalCta } from '@/components/final-cta'
+import { PromptsSection } from '@/components/prompts-section'
+import { VideoSection } from '@/components/video-section'
+import { PhotoStrip } from '@/components/photo-strip'
+import { ClosingCta } from '@/components/closing-cta'
 import { SiteFooter } from '@/components/site-footer'
 
 export default function Page() {
   return (
-    <>
-      {/* AnnouncementBar hidden for now — kept available for future use */}
-      {/* <AnnouncementBar /> */}
-      {/* Logo now lives inside the hero panel, so the separate header is not rendered */}
+    <div className="min-h-full bg-cream font-sans text-navy">
+      <IndustryBar />
+      <header>
+        <SiteNav />
+      </header>
       <main>
         <Hero />
-        <WhatYouGet />
-        <PromptSamples />
-        <HowItWorks />
-        <FinalCta />
+        <PromptsSection />
+        <VideoSection />
+        <PhotoStrip />
+        <ClosingCta />
       </main>
       <SiteFooter />
-    </>
+    </div>
   )
 }

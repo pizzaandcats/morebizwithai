@@ -1,41 +1,45 @@
-import Image from 'next/image'
+import { BrandLogo } from './brand-logo'
 
 export function SiteFooter() {
   return (
-    <footer className="bg-secondary text-secondary-foreground">
-      <div className="mx-auto max-w-6xl px-4 py-12">
-        <div className="flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
-          <span className="inline-flex border-2 border-cream/20 bg-cream px-4 py-3">
-            <Image
-              src="/logo-horizontal.svg"
-              alt="More Business with AI"
-              width={240}
-              height={80}
-              className="h-8 w-auto"
-            />
+    <footer
+      data-footer="true"
+      className="flex flex-wrap items-start gap-[22px] bg-green px-10 py-[26px]"
+    >
+      <div className="flex flex-col gap-[6px]">
+        <BrandLogo size={24} onDark />
+        <div className="text-[15px] text-cream">Practical AI help for small business owners.</div>
+        <div className="text-[13.5px] text-cream">© 2026 More Business with AI</div>
+      </div>
+
+      <div
+        data-footer-links="true"
+        className="ml-auto flex flex-wrap items-center gap-6 text-[15px] font-bold"
+      >
+        <a
+          href="#video"
+          className="inline-flex min-h-[44px] items-center gap-2 px-[2px] text-cream outline-none hover:text-cream hover:underline focus-visible:rounded-[4px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-cream"
+        >
+          <span
+            aria-hidden="true"
+            className="inline-flex h-[17px] w-6 items-center justify-center rounded-[5px] bg-cream"
+          >
+            <span className="ml-[2px] h-0 w-0 border-y-[4.5px] border-l-[7px] border-y-transparent border-l-green" />
           </span>
-          <nav aria-label="Footer" className="flex flex-wrap justify-center gap-6">
-            <a href="#inside" className="text-sm hover:text-primary">
-              What&apos;s inside
-            </a>
-            <a href="#how" className="text-sm hover:text-primary">
-              How it works
-            </a>
-            <a href="#get" className="text-sm hover:text-primary">
-              Get the prompts
-            </a>
-          </nav>
-        </div>
-      </div>
-      <div className="overflow-hidden border-t-2 border-cream/20 py-6">
-        <p className="text-center font-display text-[13vw] uppercase leading-none text-primary md:text-[8rem]">
-          Grow with AI
-        </p>
-      </div>
-      <div className="border-t-2 border-cream/20 py-4">
-        <p className="px-4 text-center text-xs text-cream/60">
-          © {new Date().getFullYear()} More Business with AI. Free prompts, zero fluff.
-        </p>
+          YouTube
+        </a>
+        <a
+          href="#prompts"
+          className="inline-flex min-h-[44px] items-center px-[2px] text-cream outline-none hover:text-cream hover:underline focus-visible:rounded-[4px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-cream"
+        >
+          The Prompts
+        </a>
+        <a
+          href="#signup"
+          className="inline-flex min-h-[44px] items-center px-[2px] text-cream outline-none hover:text-cream hover:underline focus-visible:rounded-[4px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-cream"
+        >
+          Privacy
+        </a>
       </div>
     </footer>
   )
