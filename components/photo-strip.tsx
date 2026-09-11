@@ -23,28 +23,27 @@ const photos = [
 
 export function PhotoStrip() {
   return (
-    <div
-      data-photo-strip="true"
-      className="grid grid-cols-3 border-b-2 border-navy"
-    >
-      {photos.map((photo) => (
-        <div
-          key={photo.src}
-          data-photo-1={photo.photoAttr ? 'true' : undefined}
-          className={`relative box-border aspect-square min-w-0 ${
-            photo.borderRight ? 'border-r-2 border-navy' : ''
-          }`}
-        >
-          <Image
-            src={photo.src}
-            alt={photo.alt}
-            fill
-            loading="lazy"
-            sizes="(max-width: 640px) 100vw, 33vw"
-            className="object-cover"
-          />
-        </div>
-      ))}
-    </div>
+    <section data-photo-strip="true" className="border-b-2 border-navy">
+      <div className="mx-auto grid max-w-[1600px] grid-cols-3">
+        {photos.map((photo) => (
+          <div
+            key={photo.src}
+            data-photo-1={photo.photoAttr ? 'true' : undefined}
+            className={`relative box-border aspect-square min-w-0 ${
+              photo.borderRight ? 'border-r-2 border-navy' : ''
+            }`}
+          >
+            <Image
+              src={photo.src}
+              alt={photo.alt}
+              fill
+              loading="lazy"
+              sizes="(max-width: 640px) 100vw, (max-width: 1600px) 33vw, 533px"
+              className="object-cover"
+            />
+          </div>
+        ))}
+      </div>
+    </section>
   )
 }
