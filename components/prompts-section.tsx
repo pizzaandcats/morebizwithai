@@ -9,18 +9,18 @@ type PromptCardProps = {
 function PromptCard({ badge, title, body, preview, previewLabel }: PromptCardProps) {
   return (
     <div className="flex min-w-0 flex-1 flex-col overflow-hidden rounded-[14px] border-2 border-navy bg-card">
-      <div className="flex flex-col gap-[10px] bg-green px-[26px] py-[20px]">
-        <span className="inline-flex h-[30px] items-center self-start rounded-[15px] bg-cream px-4 text-[12px] font-extrabold tracking-[0.08em] text-navy">
+      <div className="flex flex-col gap-[10px] bg-green px-5 py-[18px] sm:px-[26px] sm:py-[20px]">
+        <span className="inline-flex min-h-[30px] items-center self-start rounded-[15px] bg-cream px-3.5 py-1.5 text-[10px] font-extrabold leading-[1.2] tracking-[0.07em] text-navy sm:px-4 sm:py-0 sm:text-[12px] sm:tracking-[0.08em]">
           {badge}
         </span>
-        <span className="font-display text-[24px] tracking-[0.01em] text-cream">{title}</span>
+        <span className="font-display text-[23px] leading-[1.1] tracking-[0.01em] text-cream sm:text-[24px]">{title}</span>
       </div>
-      <div className="flex flex-1 flex-col gap-4 p-[26px]">
-        <p className="m-0 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{body}</p>
+      <div className="flex flex-1 flex-col gap-4 p-5 sm:p-[26px]">
+        <p className="m-0 max-w-[46ch] text-[16px] leading-[1.5] text-ink sm:text-[17px] sm:leading-[1.55]">{body}</p>
         <a
           href="#signup"
           aria-label={previewLabel}
-          className="group relative mt-auto block rounded-r-[8px] border-l-4 border-green bg-prompt px-5 py-[18px] pr-[46px] font-mono text-[16px] leading-[1.6] text-navy outline-none transition-colors hover:border-red hover:bg-[#eaf3ec] focus-visible:bg-[#eaf3ec] focus-visible:shadow-[0_0_0_3px_rgba(23,128,63,0.45)]"
+          className="group relative mt-auto block rounded-r-[8px] border-l-4 border-green bg-prompt px-4 py-4 pr-11 font-mono text-[14px] leading-[1.55] text-navy outline-none transition-colors hover:border-red hover:bg-[#eaf3ec] focus-visible:bg-[#eaf3ec] focus-visible:shadow-[0_0_0_3px_rgba(23,128,63,0.45)] sm:px-5 sm:py-[18px] sm:pr-[46px] sm:text-[16px] sm:leading-[1.6]"
         >
           {preview}
           <span
@@ -37,9 +37,9 @@ function PromptCard({ badge, title, body, preview, previewLabel }: PromptCardPro
 
 export function PromptsSection() {
   return (
-    <section id="prompts" className="border-b-2 border-navy px-6 py-[60px] sm:px-10">
+    <section id="prompts" className="border-b-2 border-navy px-5 py-11 sm:px-10 sm:py-[60px]">
       <div className="mx-auto flex max-w-[1060px] flex-col gap-6">
-        <h2 className="mb-[14px] mt-0 text-balance font-display text-[clamp(25px,3.2vw,34px)] font-normal tracking-[-0.01em]">
+        <h2 className="mb-2 mt-0 text-balance font-display text-[28px] font-normal leading-[1.08] tracking-[-0.01em] sm:mb-[14px] sm:text-[clamp(25px,3.2vw,34px)] sm:leading-normal">
           Two Prompts: Set up your business <span className="text-red">→</span> Price every new job
         </h2>
 
@@ -64,8 +64,8 @@ export function PromptsSection() {
           />
         </div>
 
-        <div className="flex flex-col items-center justify-center gap-[18px] pt-4 text-center sm:flex-row">
-          <div className="text-balance font-display text-[22px] tracking-[0.01em] text-navy">
+        <div className="flex flex-col items-center justify-center gap-4 pt-3 text-center sm:flex-row sm:gap-[18px] sm:pt-4">
+          <div className="max-w-[28ch] text-balance font-display text-[21px] leading-[1.2] tracking-[0.01em] text-navy sm:max-w-none sm:text-[22px]">
             That&apos;s just a peek. Get the complete prompt free.
           </div>
           <a

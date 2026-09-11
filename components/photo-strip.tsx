@@ -24,7 +24,7 @@ const photos = [
 export function PhotoStrip() {
   return (
     <section data-photo-strip="true" className="border-b-2 border-navy">
-      <div className="mx-auto grid max-w-[1600px] grid-cols-3">
+      <div data-photo-grid="true" className="mx-auto grid max-w-[1600px] grid-cols-3">
         {photos.map((photo) => (
           <div
             key={photo.src}
