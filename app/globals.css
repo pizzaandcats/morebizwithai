@@ -64,11 +64,14 @@
   breakpoints exactly.
 */
 @media (max-width: 640px) {
+  body {
+    overflow-x: hidden;
+  }
   [data-nav-link] {
     display: none !important;
   }
   [data-hero-bg] {
-    left: -70% !important;
+    inset: 0 !important;
   }
   [data-stack-mobile] {
     flex-wrap: wrap !important;
@@ -88,6 +91,9 @@
     margin-left: 0 !important;
   }
   [data-photo-strip] {
+    display: block !important;
+  }
+  [data-photo-grid] {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
   }
   [data-photo-1] {
@@ -100,12 +106,7 @@
 
 @media (max-width: 860px) {
   [data-prompt-row] {
-    flex-direction: column !important;
-  }
-  [data-prompt-arrow] {
-    align-self: center !important;
-    width: auto !important;
-    transform: rotate(90deg);
+    grid-template-columns: minmax(0, 1fr) !important;
   }
 }
 

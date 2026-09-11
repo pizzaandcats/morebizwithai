@@ -47,12 +47,12 @@ export function EmailSignup({ variant = 'light' }: { variant?: Variant }) {
   }
 
   const inputClasses = dark
-    ? 'h-[54px] flex-auto min-w-0 rounded-[27px] border-2 border-cream bg-card px-5 text-[16px] text-navy outline-none focus-visible:border-mint focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_rgba(123,224,168,0.45)]'
-    : 'h-[52px] flex-auto min-w-0 rounded-[26px] border-2 border-navy bg-card px-[18px] text-[15.5px] text-navy outline-none focus-visible:border-green'
+    ? 'h-[54px] w-full min-w-0 flex-auto rounded-[27px] border-2 border-cream bg-card px-5 text-[16px] text-navy outline-none focus-visible:border-mint focus-visible:outline-none focus-visible:shadow-[0_0_0_4px_rgba(123,224,168,0.45)]'
+    : 'h-[52px] w-full min-w-0 flex-auto rounded-[26px] border-2 border-navy bg-card px-[18px] text-[15.5px] text-navy outline-none focus-visible:border-green'
 
   const buttonClasses = dark
-    ? 'h-[54px] flex-none whitespace-nowrap rounded-[27px] border-2 border-cream bg-red px-6 font-display text-[18px] tracking-[0.02em] text-cream outline-none transition-colors hover:bg-cream hover:text-navy focus-visible:shadow-[0_0_0_4px_rgba(123,224,168,0.55)]'
-    : 'h-[52px] flex-none whitespace-nowrap rounded-[26px] border-2 border-navy bg-red px-[22px] font-display text-[18px] tracking-[0.02em] text-cream transition-colors hover:bg-navy'
+    ? 'h-[54px] w-full flex-none whitespace-nowrap rounded-[27px] border-2 border-cream bg-red px-6 font-display text-[18px] tracking-[0.02em] text-cream outline-none transition-colors hover:bg-cream hover:text-navy focus-visible:shadow-[0_0_0_4px_rgba(123,224,168,0.55)] sm:w-auto'
+    : 'h-[52px] w-full flex-none whitespace-nowrap rounded-[26px] border-2 border-navy bg-red px-[22px] font-display text-[18px] tracking-[0.02em] text-cream transition-colors hover:bg-navy sm:w-auto'
 
   return (
     <>
