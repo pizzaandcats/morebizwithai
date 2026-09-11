@@ -70,9 +70,6 @@
   [data-nav-link] {
     display: none !important;
   }
-  [data-hero-bg] {
-    inset: 0 !important;
-  }
   [data-stack-mobile] {
     flex-wrap: wrap !important;
   }
