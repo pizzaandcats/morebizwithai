@@ -10,4 +10,4 @@
  *
  * Leave it empty to render the development placeholder instead of an embed.
  */
-export const LANDSCAPING_ESTIMATES_YOUTUBE_URL = ''
+export const LANDSCAPING_ESTIMATES_YOUTUBE_URL = 'https://youtu.be/ScMzIvxBSi4'
