@@ -10,7 +10,7 @@ function PromptCard({ badge, title, body, preview, previewLabel }: PromptCardPro
   return (
     <div className="flex min-w-0 flex-1 flex-col overflow-hidden rounded-[14px] border-2 border-navy bg-card">
       <div className="flex flex-col gap-[10px] bg-green px-5 py-[18px] sm:px-[26px] sm:py-[20px]">
-        <span className="inline-flex min-h-[30px] items-center self-start rounded-[15px] bg-cream px-3.5 py-1.5 text-[10px] font-extrabold leading-[1.2] tracking-[0.07em] text-navy sm:px-4 sm:py-0 sm:text-[12px] sm:tracking-[0.08em]">
+        <span className="inline-flex items-center self-start overflow-visible rounded-[15px] bg-cream px-3.5 pb-[6px] pt-[7px] text-[10px] font-extrabold leading-normal tracking-[0.07em] text-navy sm:min-h-[30px] sm:px-4 sm:py-0 sm:text-[12px] sm:tracking-[0.08em]">
           {badge}
         </span>
         <span className="font-display text-[23px] leading-[1.1] tracking-[0.01em] text-cream sm:text-[24px]">{title}</span>
@@ -39,8 +39,11 @@ export function PromptsSection() {
   return (
     <section id="prompts" className="border-b-2 border-navy px-5 py-11 sm:px-10 sm:py-[60px]">
       <div className="mx-auto flex max-w-[1060px] flex-col gap-6">
-        <h2 className="mb-2 mt-0 text-balance font-display text-[28px] font-normal leading-[1.08] tracking-[-0.01em] sm:mb-[14px] sm:text-[clamp(25px,3.2vw,34px)] sm:leading-normal">
-          Two Prompts: Set up your business <span className="text-red">→</span> Price every new job
+        <h2 className="mb-2 mt-0 font-display text-[28px] font-normal leading-[1.08] tracking-[-0.01em] sm:mb-[14px] sm:text-balance sm:text-[clamp(25px,3.2vw,34px)] sm:leading-normal">
+          <span className="block sm:inline">Two Prompts:</span>{' '}
+          <span className="block sm:inline">Set up your business</span>{' '}
+          <span className="my-1 block text-red sm:my-0 sm:inline">→</span>{' '}
+          <span className="block sm:inline">Price every new job</span>
         </h2>
 
         <div

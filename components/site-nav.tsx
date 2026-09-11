@@ -6,7 +6,7 @@ export function SiteNav() {
       aria-label="Primary"
       className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 border-b-2 border-navy px-5 py-4 sm:justify-start sm:py-[18px] sm:pl-14 sm:pr-10"
     >
-      <BrandLogo size={24} />
+      <BrandLogo size={28} />
       <div className="flex w-full items-center justify-center gap-[26px] text-[16px] font-bold sm:ml-auto sm:w-auto">
         <a
           href="#prompts"
@@ -24,7 +24,7 @@ export function SiteNav() {
         </a>
         <a
           href="#signup"
-          className="inline-flex h-11 items-center rounded-[22px] bg-navy px-5 font-display text-[16px] tracking-[0.03em] text-cream transition-colors hover:bg-green hover:text-cream sm:px-[22px] sm:text-[17px]"
+          className="inline-flex h-11 items-center rounded-[22px] bg-navy px-5 font-display text-[15px] tracking-[0.03em] text-cream transition-colors hover:bg-green hover:text-cream sm:px-[22px] sm:text-[17px]"
         >
           GET THE PROMPTS
         </a>

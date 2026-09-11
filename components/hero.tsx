@@ -20,13 +20,13 @@ export function Hero() {
       </div>
 
       <div className="relative box-border flex w-full max-w-[620px] flex-col gap-3.5 rounded-[18px] border-2 border-navy bg-cream px-5 pb-[18px] pt-6 sm:gap-[15px] sm:px-8 sm:pb-[20px] sm:pt-[30px]">
-        <span className="inline-flex min-h-[30px] items-center self-start rounded-[15px] bg-green px-3.5 py-1.5 text-[10px] font-extrabold leading-[1.25] tracking-[0.08em] text-cream sm:px-4 sm:py-0 sm:text-[12px] sm:tracking-[0.1em]">
+        <span className="inline-flex items-center self-start overflow-visible rounded-[15px] bg-green px-3.5 pb-[6px] pt-[7px] text-[10px] font-extrabold leading-normal tracking-[0.08em] text-cream sm:min-h-[30px] sm:px-4 sm:py-0 sm:text-[12px] sm:tracking-[0.1em]">
           PROMPTS FOR LANDSCAPING BUSINESSES
         </span>
 
         <h1
           id="hero-heading"
-          className="mb-0 mt-1 text-balance font-display text-[clamp(28px,8.6vw,36px)] font-normal uppercase leading-[0.92] tracking-[-0.015em] sm:mt-[6px] sm:text-[clamp(30px,4.3vw,45px)] sm:leading-[0.9]"
+          className="mb-0 mt-1 text-balance font-display text-[clamp(34px,10vw,40px)] font-normal uppercase leading-[0.9] tracking-[-0.015em] sm:mt-[6px] sm:text-[clamp(30px,4.3vw,45px)]"
         >
           <span className="block text-green sm:whitespace-nowrap">USE AI TO PRICE JOBS</span>
           <span className="block text-navy sm:whitespace-nowrap">AND PROTECT YOUR PROFIT</span>

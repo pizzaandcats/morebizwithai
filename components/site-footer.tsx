@@ -14,7 +14,7 @@ export function SiteFooter() {
 
       <div
         data-footer-links="true"
-        className="ml-auto flex w-full flex-wrap items-center gap-x-6 gap-y-1 text-[15px] font-bold sm:w-auto"
+        className="ml-0 flex w-full flex-col items-start justify-start gap-1 text-left text-[15px] font-bold sm:ml-auto sm:w-auto sm:flex-row sm:items-center sm:gap-6"
       >
         <a
           href="#video"
