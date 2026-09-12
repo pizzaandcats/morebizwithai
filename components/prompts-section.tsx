@@ -70,7 +70,7 @@ export function PromptsSection() {
           </div>
           <a
             href="#signup"
-            className="inline-flex h-[52px] items-center whitespace-nowrap rounded-[26px] border-2 border-navy bg-primary px-6 font-display text-[18px] tracking-[0.02em] text-primary-foreground transition-colors hover:bg-[#96b84f]"
+            className="inline-flex h-[52px] items-center whitespace-nowrap rounded-[26px] border-2 border-navy bg-primary px-6 font-display text-[18px] tracking-[0.02em] text-primary-foreground transition-colors hover:bg-primary-hover"
           >
             GET THE PROMPTS
           </a>

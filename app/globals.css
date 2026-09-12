@@ -10,7 +10,8 @@
   --color-green: #17803f;
   --color-navy: #14183c;
   --color-red: #f5402c;
-  --color-sage: #a7c957;
+  --color-sage: #b1bca0;
+  --color-sage-dark: #9eaa8f;
   --color-card: #ffffff;
   --color-ink: #333856;
   --color-ink-soft: #454a6b;
@@ -21,6 +22,7 @@
   --color-background: var(--color-cream);
   --color-foreground: var(--color-navy);
   --color-primary: var(--color-sage);
+  --color-primary-hover: var(--color-sage-dark);
   --color-primary-foreground: var(--color-navy);
   --color-border: var(--color-navy);
   --radius: 14px;
