@@ -39,8 +39,8 @@ export function PromptsSection() {
   return (
     <section id="prompts" className="border-b-2 border-navy px-5 py-11 sm:px-10 sm:py-[60px]">
       <div className="mx-auto flex max-w-[1060px] flex-col gap-6">
-        <h2 className="mb-2 mt-0 text-pretty font-display text-[30px] font-normal leading-[1.12] tracking-[-0.01em] sm:mb-[14px] sm:text-balance sm:text-[clamp(25px,3.2vw,34px)] sm:leading-normal">
-          Prompts: (1) Set up your business &amp; (2) Price every new job
+        <h2 className="mb-2 mt-0 font-display text-[34px] font-normal leading-none tracking-[-0.01em] sm:mb-[14px] sm:text-[clamp(25px,3.2vw,34px)] sm:leading-normal">
+          Prompts
         </h2>
 
         <div
@@ -66,7 +66,7 @@ export function PromptsSection() {
 
         <div className="flex flex-col items-center justify-center gap-4 pt-3 text-center sm:flex-row sm:gap-[18px] sm:pt-4">
           <div className="max-w-[26ch] text-balance font-display text-[25px] leading-[1.15] tracking-[0.01em] text-navy sm:max-w-none sm:text-[26px]">
-            That&apos;s just a peek. Get the complete prompt free.
+            That&apos;s just a peek. Get the complete prompts free.
           </div>
           <a
             href="#signup"
