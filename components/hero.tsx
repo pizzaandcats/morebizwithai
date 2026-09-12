@@ -6,16 +6,16 @@ export function Hero() {
     <section
       id="signup"
       aria-labelledby="hero-heading"
-      className="relative flex w-full items-center overflow-hidden border-b-2 border-navy px-5 py-6 sm:aspect-[2.4/1] sm:min-h-[450px] sm:px-10 sm:py-7 sm:pl-16 lg:pl-24"
+      className="relative flex w-full items-end overflow-hidden border-b-2 border-navy bg-cream px-5 pb-8 pt-[240px] sm:aspect-[2.4/1] sm:min-h-[450px] sm:items-center sm:bg-transparent sm:px-10 sm:py-7 sm:pl-16 lg:pl-24"
     >
-      <div data-hero-bg="true" className="absolute inset-0">
+      <div data-hero-bg="true" className="absolute inset-x-0 top-0 h-[300px] sm:inset-0 sm:h-auto">
         <Image
           src="/images/hero-landscaper.png"
           alt="A landscaper kneeling to plant shrubs in a manicured yard, with open lawn on the left"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[67%_center] sm:object-center"
+          className="object-cover object-[78%_center] sm:object-center"
         />
       </div>
 
@@ -26,7 +26,7 @@ export function Hero() {
 
         <h1
           id="hero-heading"
-          className="mb-0 mt-1 text-balance font-display text-[clamp(34px,10vw,40px)] font-normal uppercase leading-[0.9] tracking-[-0.015em] sm:mt-[6px] sm:text-[clamp(30px,4.3vw,45px)]"
+          className="mb-0 mt-1 font-display text-[clamp(38px,10.5vw,44px)] font-normal uppercase leading-[0.98] tracking-normal sm:mt-[6px] sm:text-balance sm:text-[clamp(30px,4.3vw,45px)] sm:leading-[0.9] sm:tracking-[-0.015em]"
         >
           <span className="block text-green sm:whitespace-nowrap">USE AI TO PRICE JOBS</span>
           <span className="block text-navy sm:whitespace-nowrap">AND PROTECT YOUR PROFIT</span>
