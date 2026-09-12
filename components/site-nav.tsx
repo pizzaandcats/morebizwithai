@@ -24,7 +24,7 @@ export function SiteNav() {
         </a>
         <a
           href="#signup"
-          className="inline-flex h-11 items-center rounded-[22px] border-2 border-navy bg-primary px-5 font-display text-[15px] tracking-[0.03em] text-primary-foreground transition-colors hover:bg-primary-hover sm:px-[22px] sm:text-[17px]"
+          className="inline-flex h-11 items-center rounded-[22px] border-2 border-navy bg-primary px-5 font-display text-[15px] tracking-[0.03em] text-primary-foreground transition-colors hover:bg-primary-hover hover:text-primary-foreground sm:px-[22px] sm:text-[17px]"
         >
           GET THE PROMPTS
         </a>
