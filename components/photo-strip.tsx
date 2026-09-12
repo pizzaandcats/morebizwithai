@@ -30,6 +30,8 @@ export function PhotoStrip() {
             key={photo.src}
             data-photo-1={photo.photoAttr ? 'true' : undefined}
             className={`relative box-border aspect-square min-w-0 ${
+              photo.photoAttr ? 'hidden sm:block' : ''
+            } ${
               photo.borderRight ? 'border-r-2 border-navy' : ''
             }`}
           >
@@ -44,6 +46,21 @@ export function PhotoStrip() {
           </div>
         ))}
       </div>
+    </section>
+  )
+}
+
+export function MobileTruckPhoto() {
+  return (
+    <section className="relative block aspect-[3/2] w-full overflow-hidden border-b-2 border-navy sm:hidden">
+      <Image
+        src="/images/crew-truck.webp"
+        alt="Landscaping crew loading equipment from the work truck"
+        fill
+        loading="lazy"
+        sizes="100vw"
+        className="object-cover"
+      />
     </section>
   )
 }

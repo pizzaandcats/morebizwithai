@@ -15,7 +15,7 @@ export function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[78%_center] sm:object-center"
+          className="origin-[82%_50%] scale-[1.4] object-cover object-[88%_center] sm:scale-100 sm:object-center"
         />
       </div>
 
@@ -26,13 +26,23 @@ export function Hero() {
 
         <h1
           id="hero-heading"
-          className="mb-0 mt-1 font-display text-[clamp(38px,10.5vw,44px)] font-normal uppercase leading-[0.98] tracking-normal sm:mt-[6px] sm:text-balance sm:text-[clamp(30px,4.3vw,45px)] sm:leading-[0.9] sm:tracking-[-0.015em]"
+          className="mb-0 mt-1 font-display text-[clamp(32px,9vw,36px)] font-normal uppercase leading-[0.98] tracking-normal sm:mt-[6px] sm:text-balance sm:text-[clamp(30px,4.3vw,45px)] sm:leading-[0.9] sm:tracking-[-0.015em]"
         >
-          <span className="block text-green sm:whitespace-nowrap">USE AI TO PRICE JOBS</span>
-          <span className="block text-navy sm:whitespace-nowrap">AND PROTECT YOUR PROFIT</span>
+          <span className="sm:hidden">
+            <span className="block text-green">USE AI TO</span>
+            <span className="block whitespace-nowrap">
+              <span className="text-green">PRICE JOBS</span>{' '}
+              <span className="text-navy">AND</span>
+            </span>
+            <span className="block whitespace-nowrap text-navy">PROTECT YOUR PROFIT</span>
+          </span>
+          <span className="hidden sm:block">
+            <span className="block whitespace-nowrap text-green">USE AI TO PRICE JOBS</span>
+            <span className="block whitespace-nowrap text-navy">AND PROTECT YOUR PROFIT</span>
+          </span>
         </h1>
 
-        <p className="m-0 text-pretty text-[16px] leading-[1.45] text-ink sm:text-[17px] sm:leading-[1.5]">
+        <p className="m-0 text-pretty text-[18px] leading-[1.5] text-ink sm:text-[17px]">
           Get <strong className="text-navy">two free prompts</strong> that use the customer&apos;s
           request, photos, and your real costs to help you build a better estimate.
         </p>
