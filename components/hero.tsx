@@ -6,9 +6,9 @@ export function Hero() {
     <section
       id="signup"
       aria-labelledby="hero-heading"
-      className="relative flex w-full items-end overflow-hidden border-b-2 border-navy bg-cream px-5 pb-8 pt-[240px] sm:aspect-[2.4/1] sm:min-h-[450px] sm:items-center sm:bg-transparent sm:px-10 sm:py-7 sm:pl-16 lg:pl-24"
+      className="relative flex w-full items-end overflow-hidden border-b-2 border-navy bg-cream px-5 pb-8 pt-[340px] sm:aspect-[2.4/1] sm:min-h-[450px] sm:items-center sm:bg-transparent sm:px-10 sm:py-7 sm:pl-16 lg:pl-24"
     >
-      <div data-hero-bg="true" className="absolute inset-x-0 top-0 h-[300px] sm:inset-0 sm:h-auto">
+      <div data-hero-bg="true" className="absolute inset-x-0 top-0 h-[380px] sm:inset-0 sm:h-auto">
         <Image
           src="/images/hero-landscaper.png"
           alt="A landscaper kneeling to plant shrubs in a manicured yard, with open lawn on the left"
@@ -19,8 +19,8 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative box-border flex w-full max-w-[620px] flex-col gap-3.5 rounded-[18px] border-2 border-navy bg-cream px-5 pb-[18px] pt-6 sm:gap-[15px] sm:px-8 sm:pb-[20px] sm:pt-[30px]">
-        <span className="inline-block self-start rounded-full bg-green px-4 py-2 text-[11px] font-extrabold leading-[1.35] tracking-[0.08em] text-cream sm:text-[12px] sm:tracking-[0.1em]">
+      <div className="relative box-border flex w-full max-w-[620px] flex-col gap-3.5 rounded-[18px] border-2 border-navy bg-cream px-5 pb-3 pt-6 sm:gap-[15px] sm:px-8 sm:pb-[20px] sm:pt-[30px]">
+        <span className="hidden self-start rounded-full bg-green px-4 py-2 text-[11px] font-extrabold leading-[1.35] tracking-[0.08em] text-cream sm:inline-block sm:text-[12px] sm:tracking-[0.1em]">
           PROMPTS FOR LANDSCAPING BUSINESSES
         </span>
 
