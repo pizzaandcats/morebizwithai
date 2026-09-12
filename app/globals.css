@@ -10,6 +10,7 @@
   --color-green: #17803f;
   --color-navy: #14183c;
   --color-red: #f5402c;
+  --color-sage: #a7c957;
   --color-card: #ffffff;
   --color-ink: #333856;
   --color-ink-soft: #454a6b;
@@ -19,8 +20,8 @@
   /* Semantic tokens */
   --color-background: var(--color-cream);
   --color-foreground: var(--color-navy);
-  --color-primary: var(--color-red);
-  --color-primary-foreground: var(--color-cream);
+  --color-primary: var(--color-sage);
+  --color-primary-foreground: var(--color-navy);
   --color-border: var(--color-navy);
   --radius: 14px;
 }
