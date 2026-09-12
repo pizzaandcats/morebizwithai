@@ -51,8 +51,8 @@ export function EmailSignup({ variant = 'light' }: { variant?: Variant }) {
     : 'h-[52px] w-full min-w-0 flex-auto rounded-[26px] border-2 border-navy bg-card px-[18px] text-[15.5px] text-navy outline-none focus-visible:border-green'
 
   const buttonClasses = dark
-    ? 'h-[54px] w-full flex-none whitespace-nowrap rounded-[27px] border-2 border-cream bg-primary px-6 font-display text-[18px] tracking-[0.02em] text-primary-foreground outline-none transition-colors hover:bg-cream focus-visible:shadow-[0_0_0_4px_rgba(123,224,168,0.55)] sm:w-auto'
-    : 'h-[52px] w-full flex-none whitespace-nowrap rounded-[26px] border-2 border-navy bg-primary px-[22px] font-display text-[18px] tracking-[0.02em] text-primary-foreground transition-colors hover:bg-[#96b84f] sm:w-auto'
+    ? 'h-[54px] w-full flex-none whitespace-nowrap rounded-[27px] border-2 border-cream bg-primary px-6 font-display text-[18px] tracking-[0.02em] text-primary-foreground outline-none transition-colors hover:bg-primary-hover focus-visible:shadow-[0_0_0_4px_rgba(123,224,168,0.55)] sm:w-auto'
+    : 'h-[52px] w-full flex-none whitespace-nowrap rounded-[26px] border-2 border-navy bg-primary px-[22px] font-display text-[18px] tracking-[0.02em] text-primary-foreground transition-colors hover:bg-primary-hover sm:w-auto'
 
   return (
     <>
