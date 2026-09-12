@@ -8,8 +8,8 @@ const photos = [
     borderRight: true,
   },
   {
-    src: '/images/finished-yard.webp',
-    alt: 'A finished front yard with fresh mulch beds and mown turf',
+    src: '/images/hedge-trimming.jpeg',
+    alt: 'Landscaper trimming a hedge outside a home',
     photoAttr: undefined,
     borderRight: true,
   },

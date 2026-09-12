@@ -15,7 +15,7 @@ export function Hero() {
           fill
           priority
           sizes="100vw"
-          className="origin-[82%_50%] scale-[1.4] object-cover object-[88%_center] sm:scale-100 sm:object-center"
+          className="origin-right scale-[1.5] object-cover object-right sm:scale-100 sm:object-center"
         />
       </div>
 
@@ -26,15 +26,11 @@ export function Hero() {
 
         <h1
           id="hero-heading"
-          className="mb-0 mt-1 font-display text-[clamp(32px,9vw,36px)] font-normal uppercase leading-[0.98] tracking-normal sm:mt-[6px] sm:text-balance sm:text-[clamp(30px,4.3vw,45px)] sm:leading-[0.9] sm:tracking-[-0.015em]"
+          className="mb-0 mt-1 font-display text-[clamp(26px,7.2vw,30px)] font-normal uppercase leading-[0.98] tracking-[-0.01em] sm:mt-[6px] sm:text-balance sm:text-[clamp(30px,4.3vw,45px)] sm:leading-[0.9] sm:tracking-[-0.015em]"
         >
           <span className="sm:hidden">
-            <span className="block text-green">USE AI TO</span>
-            <span className="block whitespace-nowrap">
-              <span className="text-green">PRICE JOBS</span>{' '}
-              <span className="text-navy">AND</span>
-            </span>
-            <span className="block whitespace-nowrap text-navy">PROTECT YOUR PROFIT</span>
+            <span className="block whitespace-nowrap text-green">USE AI TO PRICE JOBS</span>
+            <span className="block whitespace-nowrap text-navy">AND PROTECT YOUR PROFIT</span>
           </span>
           <span className="hidden sm:block">
             <span className="block whitespace-nowrap text-green">USE AI TO PRICE JOBS</span>

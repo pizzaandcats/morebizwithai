@@ -7,7 +7,7 @@ export function SiteNav() {
       className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4 border-b-2 border-navy px-5 py-4 sm:justify-start sm:py-[18px] sm:pl-14 sm:pr-10"
     >
       <BrandLogo size={32} />
-      <div className="flex w-full items-center justify-center gap-[26px] text-[16px] font-bold sm:ml-auto sm:w-auto">
+      <div className="hidden items-center justify-center gap-[26px] text-[16px] font-bold sm:ml-auto sm:flex sm:w-auto">
         <a
           href="#prompts"
           data-nav-link="true"
@@ -24,7 +24,7 @@ export function SiteNav() {
         </a>
         <a
           href="#signup"
-          className="inline-flex h-11 items-center rounded-[22px] border-2 border-navy bg-red px-5 font-display text-[15px] tracking-[0.03em] text-cream transition-colors hover:bg-navy hover:text-cream sm:px-[22px] sm:text-[17px]"
+          className="inline-flex h-11 items-center rounded-[22px] border-2 border-navy bg-primary px-5 font-display text-[15px] tracking-[0.03em] text-primary-foreground transition-colors hover:bg-[#96b84f] sm:px-[22px] sm:text-[17px]"
         >
           GET THE PROMPTS
         </a>
