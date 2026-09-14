@@ -1,28 +1,5 @@
-import { IndustryBar } from '@/components/industry-bar'
-import { SiteNav } from '@/components/site-nav'
-import { Hero } from '@/components/hero'
-import { PromptsSection } from '@/components/prompts-section'
-import { VideoSection } from '@/components/video-section'
-import { MobileTruckPhoto, PhotoStrip } from '@/components/photo-strip'
-import { ClosingCta } from '@/components/closing-cta'
-import { SiteFooter } from '@/components/site-footer'
+import { redirect } from 'next/navigation'
 
-export default function Page() {
-  return (
-    <div className="mx-auto min-h-full max-w-[1920px] overflow-hidden bg-cream font-sans text-navy">
-      <IndustryBar />
-      <header>
-        <SiteNav />
-      </header>
-      <main>
-        <Hero />
-        <PromptsSection />
-        <MobileTruckPhoto />
-        <VideoSection />
-        <PhotoStrip />
-        <ClosingCta />
-      </main>
-      <SiteFooter />
-    </div>
-  )
+export default function RootPage() {
+  redirect('/landscaping')
 }
