@@ -1,6 +1,6 @@
 'use client'
 
-import { useId, useState } from 'react'
+import { FormEvent, useId, useState } from 'react'
 
 type Variant = 'light' | 'dark'
 type Kind = '' | 'pending' | 'success' | 'error'
@@ -24,26 +24,49 @@ export function EmailSignup({ variant = 'light' }: { variant?: Variant }) {
   const [kind, setKind] = useState<Kind>('')
   const [sending, setSending] = useState(false)
 
-  function submit() {
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+
     if (sending) {
       setMsg('Your request is already being sent.')
       setKind('error')
       return
     }
+
     if (!isValidEmail(email)) {
       setMsg('Enter a valid email address.')
       setKind('error')
       return
     }
+
     setSending(true)
     setMsg('Getting your prompts...')
     setKind('pending')
-    setTimeout(() => {
-      setSending(false)
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+
+      const result = (await response.json().catch(() => null)) as
+        | { error?: string }
+        | null
+
+      if (!response.ok) {
+        throw new Error(result?.error || 'Something went wrong. Try again.')
+      }
+
       setEmail('')
-      setMsg('Check your inbox — both prompts are on the way.')
+      setMsg('Success! Now check your email to confirm your subscription.')
       setKind('success')
-    }, 1200)
+    } catch (error) {
+      setMsg(error instanceof Error ? error.message : 'Something went wrong. Try again.')
+      setKind('error')
+    } finally {
+      setSending(false)
+    }
   }
 
   const inputClasses = dark
@@ -51,11 +74,11 @@ export function EmailSignup({ variant = 'light' }: { variant?: Variant }) {
     : 'h-[52px] w-full min-w-0 flex-auto rounded-[26px] border-2 border-navy bg-card px-[18px] text-[15.5px] text-navy outline-none focus-visible:border-green'
 
   const buttonClasses = dark
-    ? 'h-[54px] w-full flex-none whitespace-nowrap rounded-[27px] border-2 border-cream bg-primary px-6 font-display text-[18px] tracking-[0.02em] text-primary-foreground outline-none transition-colors hover:bg-primary-hover focus-visible:shadow-[0_0_0_4px_rgba(123,224,168,0.55)] sm:w-auto'
-    : 'h-[52px] w-full flex-none whitespace-nowrap rounded-[26px] border-2 border-navy bg-primary px-[22px] font-display text-[18px] tracking-[0.02em] text-primary-foreground transition-colors hover:bg-primary-hover sm:w-auto'
+    ? 'h-[54px] w-full flex-none whitespace-nowrap rounded-[27px] border-2 border-cream bg-primary px-6 font-display text-[18px] tracking-[0.02em] text-primary-foreground outline-none transition-colors hover:bg-primary-hover focus-visible:shadow-[0_0_0_4px_rgba(123,224,168,0.55)] disabled:cursor-wait disabled:opacity-75 sm:w-auto'
+    : 'h-[52px] w-full flex-none whitespace-nowrap rounded-[26px] border-2 border-navy bg-primary px-[22px] font-display text-[18px] tracking-[0.02em] text-primary-foreground transition-colors hover:bg-primary-hover disabled:cursor-wait disabled:opacity-75 sm:w-auto'
 
   return (
-    <>
+    <form onSubmit={submit} noValidate aria-busy={sending}>
       <div
         data-stack-mobile="true"
         className="flex w-full flex-nowrap gap-[9px]"
@@ -65,26 +88,28 @@ export function EmailSignup({ variant = 'light' }: { variant?: Variant }) {
         </label>
         <input
           id={inputId}
+          name="email_address"
           type="email"
           inputMode="email"
           autoComplete="email"
           placeholder="you@yourbusiness.com"
+          required
           value={email}
           aria-describedby={statusId}
+          aria-invalid={kind === 'error'}
           onChange={(e) => {
             setEmail(e.target.value)
             setMsg('')
             setKind('')
           }}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' && !e.nativeEvent.isComposing && e.keyCode !== 229) {
-              submit()
-            }
-          }}
           className={`box-border font-sans ${inputClasses}`}
         />
-        <button type="button" onClick={submit} className={`box-border cursor-pointer ${buttonClasses}`}>
-          GET THE PROMPTS
+        <button
+          type="submit"
+          disabled={sending}
+          className={`box-border cursor-pointer ${buttonClasses}`}
+        >
+          {sending ? 'GETTING YOUR PROMPTS...' : 'GET THE PROMPTS'}
         </button>
       </div>
       <div className="flex flex-col items-center gap-[5px] text-center">
@@ -103,6 +128,6 @@ export function EmailSignup({ variant = 'light' }: { variant?: Variant }) {
           {msg || '\u00A0'}
         </span>
       </div>
-    </>
+    </form>
   )
 }
