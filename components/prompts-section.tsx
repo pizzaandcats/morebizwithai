@@ -20,7 +20,7 @@ function PromptCard({ badge, title, body, preview, previewLabel }: PromptCardPro
         <a
           href="#signup"
           aria-label={previewLabel}
-          className="group relative mt-auto block rounded-r-[8px] border-l-4 border-green bg-prompt px-4 py-4 pr-11 font-mono text-[16px] leading-[1.55] text-navy outline-none transition-colors hover:border-red hover:bg-[#eaf3ec] focus-visible:bg-[#eaf3ec] focus-visible:shadow-[0_0_0_3px_rgba(23,128,63,0.45)] sm:px-5 sm:py-[18px] sm:pr-[46px] sm:leading-[1.6]"
+          className="group relative mt-auto block rounded-r-[8px] border-l-4 border-green bg-prompt px-4 py-4 pr-11 font-mono text-[16px] leading-[1.55] text-navy outline-none transition-colors hover:border-green hover:bg-[#eaf3ec] hover:text-navy focus-visible:bg-[#eaf3ec] focus-visible:shadow-[0_0_0_3px_rgba(23,128,63,0.45)] sm:px-5 sm:py-[18px] sm:pr-[46px] sm:leading-[1.6]"
         >
           {preview}
           <span
@@ -38,7 +38,7 @@ function PromptCard({ badge, title, body, preview, previewLabel }: PromptCardPro
 export function PromptsSection() {
   return (
     <section id="prompts" className="border-b-2 border-navy px-5 py-11 sm:px-10 sm:py-[60px]">
-      <div className="mx-auto flex max-w-[1060px] flex-col gap-6">
+      <div className="mx-auto flex max-w-[1200px] flex-col gap-6">
         <h2 className="mb-2 mt-0 font-display text-[34px] font-normal leading-none tracking-[-0.01em] sm:mb-[14px] sm:text-[clamp(25px,3.2vw,34px)] sm:leading-normal">
           Prompts
         </h2>
