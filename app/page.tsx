@@ -9,7 +9,7 @@ import { SiteFooter } from '@/components/site-footer'
 
 export default function Page() {
   return (
-    <div className="min-h-full bg-cream font-sans text-navy">
+    <div className="mx-auto min-h-full max-w-[1920px] overflow-hidden bg-cream font-sans text-navy">
       <IndustryBar />
       <header>
         <SiteNav />
