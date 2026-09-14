@@ -12,6 +12,8 @@
   --color-red: #f5402c;
   --color-sage: #b1bca0;
   --color-sage-dark: #9eaa8f;
+  --color-muted-red: #bc4749;
+  --color-muted-red-dark: #a63c3f;
   --color-card: #ffffff;
   --color-ink: #333856;
   --color-ink-soft: #454a6b;
@@ -21,9 +23,9 @@
   /* Semantic tokens */
   --color-background: var(--color-cream);
   --color-foreground: var(--color-navy);
-  --color-primary: var(--color-sage);
-  --color-primary-hover: var(--color-sage-dark);
-  --color-primary-foreground: var(--color-navy);
+  --color-primary: var(--color-muted-red);
+  --color-primary-hover: var(--color-muted-red-dark);
+  --color-primary-foreground: var(--color-cream);
   --color-border: var(--color-navy);
   --radius: 14px;
 }
