@@ -59,7 +59,7 @@ export function EmailSignup({ variant = 'light' }: { variant?: Variant }) {
       }
 
       setEmail('')
-      setMsg('Success! Now check your email to confirm your subscription.')
+      setMsg('Almost there! Check your email and confirm your address to get the prompts.')
       setKind('success')
     } catch (error) {
       setMsg(error instanceof Error ? error.message : 'Something went wrong. Try again.')
