@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 
-const KIT_FORM_URL = 'https://app.kit.com/forms/9917657/subscriptions'
+const KIT_FORM_URL = 'https://app.kit.com/forms/9919424/subscriptions'
 
 function isValidEmail(value: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
