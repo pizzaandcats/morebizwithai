@@ -78,7 +78,7 @@ export function EmailSignup({ variant = 'light' }: { variant?: Variant }) {
     : 'h-[52px] w-full flex-none whitespace-nowrap rounded-[26px] border-2 border-navy bg-primary px-[22px] font-display text-[18px] tracking-[0.02em] text-primary-foreground transition-colors hover:bg-primary-hover disabled:cursor-wait disabled:opacity-75 sm:w-auto'
 
   return (
-    <form onSubmit={submit} noValidate aria-busy={sending}>
+    <form onSubmit={submit} noValidate aria-busy={sending} className="w-full">
       <div
         data-stack-mobile="true"
         className="flex w-full flex-nowrap gap-[9px]"
@@ -112,7 +112,7 @@ export function EmailSignup({ variant = 'light' }: { variant?: Variant }) {
           {sending ? 'GETTING YOUR PROMPTS...' : 'GET THE PROMPTS'}
         </button>
       </div>
-      <div className="flex flex-col items-center gap-[5px] text-center">
+      <div className="mt-3 flex flex-col items-center gap-[5px] text-center">
         <span
           className={dark ? 'text-[15px] text-[#e4e7f5]' : 'text-[14px] font-semibold text-ink-soft'}
         >
