@@ -44,6 +44,22 @@ export function Hero() {
         </p>
 
         <EmailSignup variant="light" />
+
+        <p className="m-0 flex items-center gap-1.5 text-[13px] leading-[1.4] text-ink/70">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 20 20"
+            className="h-4 w-4 shrink-0 text-green"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 0 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z"
+              clipRule="evenodd"
+            />
+          </svg>
+          Works in the free version of ChatGPT or Claude.
+        </p>
       </div>
     </section>
   )
