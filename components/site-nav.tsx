@@ -20,7 +20,7 @@ export function SiteNav() {
           data-nav-link="true"
           className="inline-flex min-h-[44px] items-center px-1 text-navy"
         >
-          How to Use AI
+          Watch the Video
         </a>
         <a
           href="#signup"
